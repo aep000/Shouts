@@ -1,26 +1,29 @@
-<!DOCTYPE html><!--HTML5 doctype-->
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Your New Application</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-		/* Prevent copy paste for all elements except text fields */
-		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
-		input, textarea  { -webkit-user-select:text; }
-		body { background-color:white; color:black }
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
 	</style>
-	<script src='intelxdk.js'></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key={791840615975-ocbovri05vpsbmtun44dqeim1ger6lio}&sensor=true">
+    </script>
 	<script type="text/javascript">
-		/* This code is used to run as soon as Intel activates */
-		var onDeviceReady=function(){
-		//hide splash screen
-		intel.xdk.device.hideSplashScreen();
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8
 		};
-		document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 </head>
 <body>
+<<<<<<< HEAD
 	<!-- content goes here-->
     <style>
     #registerform{
@@ -35,5 +38,8 @@
         Confirm Password: <input type="password" name="confirm" id="input"><br>
         <input type="button" value="Register" id="button"/>
     </form>
+=======
+    <div id="map-canvas"/>
+>>>>>>> origin/master
 </body>
 </html>
