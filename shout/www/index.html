@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
-	</style>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key={AIzaSyDCHw1GGttifGmKBq_PIRgTs1Uc74MWNHU}&sensor=false">
-    </script>
-	<script type="text/javascript">
-      function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8
-		};
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+    
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Hello World!"
+  });
+
+infowindow.open(map,marker);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 </head>
+
 <body>
-<<<<<<< HEAD
-	<!-- content goes here-->
-    <style>
-    #registerform{
-            color: #000000;
-    text-align: left;
-    font-family: 'Open Sans', sans-serif;
-    }
-        </style>
- <form id="registerform">
-        Username: <input type="text" name="username" id="input"><br>
-        Password: <input type="password" name="password" id="input"><br>
-        Confirm Password: <input type="password" name="confirm" id="input"><br>
-        <input type="button" value="Register" id="button"/>
-    </form>
-=======
-    <div id="map-canvas"/>
->>>>>>> origin/master
+<div id="googleMap" style="width:500px;height:380px;"></div>
 </body>
 </html>
