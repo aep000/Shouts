@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script
 src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
 </script>
-    <style>
-    width; 100%
-    </style>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
 <script>
+$.post("test.php",
+    {
+      name:"Donald Duck",
+      city:"Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+
 var myCenter=new google.maps.LatLng(51.508742,-0.120850);
 
 function initialize()
@@ -21,21 +28,15 @@ var mapProp = {
   };
 
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
 var marker=new google.maps.Marker({
-  position:myCenter;
+  position:new google.maps.latlng(x+c, x+c),
   });
 
-marker.setMap(map)
-
-var infowindow = new google.maps.InfoWindow({
-  content:msg
-  });
-
-infowindow.open(map,marker);
+marker.setMap(map);
 }
-google.maps.event.addDomListener(window, 'load', initialize)
-                        
-                                        
+
+google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </head>
 
