@@ -1,0 +1,52 @@
+<!DOCTYPE html><!--HTML5 doctype-->
+<html>
+<head>
+	<title>Your New Application</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+	<style type="text/css">
+		/* Prevent copy paste for all elements except text fields */
+		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+		input, textarea  { -webkit-user-select:text; }
+		body { background-color:white; color:black }
+        
+        #register{
+            margin-left: auto;
+            margin-right: auto;
+        width:400px;
+        }
+        #title{
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+        }
+	</style>
+	<script src='intelxdk.js'></script>
+	<script type="text/javascript">
+		/* This code is used to run as soon as Intel activates */
+		var onDeviceReady=function(){
+		//hide splash screen
+		intel.xdk.device.hideSplashScreen();
+		};
+		document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
+
+        
+	</script>
+</head>
+<body>
+	<!-- content goes here-->
+    <div id="title">
+    <img src="register.png">
+        </div>
+    <br />
+    <div id="register">
+    <form id="registerform">
+    <img src="username.png"> <input type="text" name="username" id="input"><br>
+    <img src="password.png"> <input type="password" name="password" id="input"><br>
+        <button>
+        <img src="button.png">
+        </button>
+    </form>
+        </div>
+</body>
+</html>
