@@ -16,16 +16,20 @@ function GetLocation(location) {
     var z = location.coords.longitude;
      var y = concat(w,",",z);
      return y;
-}
-    
     var x = getLocation();
+    function shoutout(message){
+        
+    }
+    
+    function getmap(){
     var y = concat("recieve|",x,";","get the coords") 
 $.post("test.php",
     {
-      pos:x
+      data:x
     },
     function(data,status){
-        data.split(
+        var vals = data.split(";");
+        
         var myCenter=new google.maps.LatLng();
         function initialize()
         {
@@ -41,12 +45,18 @@ $.post("test.php",
             marker.setMap(map);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
-    });
+        
+    });}
 </script>
 </head>
 
 <body>
-    <div style="width"></div>
+    <div style="height: 100px;">
+        <form>
+            <input id="shout it" type="text"/>
+            <input type="submit" id="sub" onclick="shoutout(this.form)"/>
+        </form>
+    </div>
 <div id="googleMap" style="width:500px; height:500px;"></div>
 </body>
 </html>
